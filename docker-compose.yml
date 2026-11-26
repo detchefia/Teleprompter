@@ -1,0 +1,24 @@
+# Servidor próprio com HTTPS automático:
+#   TELEPROMPTER_DOMAIN=teleprompter.seudominio.com.br docker compose up -d --build
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "3838"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [app]
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TELEPROMPTER_DOMAIN=${TELEPROMPTER_DOMAIN:?defina TELEPROMPTER_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:

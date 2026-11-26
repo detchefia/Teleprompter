@@ -1,0 +1,14 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+rsconnect/
+
+# Node / testes
+node_modules/
+tests/e2e/screenshots/
+
+# Sistema
+.DS_Store
+Thumbs.db
+.env

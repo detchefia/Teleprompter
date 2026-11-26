@@ -1,0 +1,6 @@
+# Caddy obtém e renova o certificado HTTPS (Let's Encrypt) automaticamente.
+# Defina TELEPROMPTER_DOMAIN (ex.: teleprompter.seudominio.com.br) apontando para o servidor.
+{$TELEPROMPTER_DOMAIN} {
+	encode gzip
+	reverse_proxy app:3838
+}

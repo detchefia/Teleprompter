@@ -1,0 +1,11 @@
+{
+  "name": "teleprompter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Testes do cliente JavaScript do teleprompter (o app em si é R/Shiny).",
+  "scripts": {
+    "test": "node --test tests/js/utils.test.js tests/js/mp4info.test.js",
+    "test:e2e": "node tests/e2e/run-e2e.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
